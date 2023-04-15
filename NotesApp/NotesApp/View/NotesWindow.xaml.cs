@@ -40,18 +40,18 @@ namespace EvernoteClone.View
             fontSizeComboBox.ItemsSource = fontSizes;
         }
 
-        //protected override void OnActivated(EventArgs e)
-        //{
-        //    base.OnActivated(e);
-            
-        //    if (string.IsNullOrEmpty(App.UserId))
-        //    {
-        //        LoginWindow loginWindow = new LoginWindow();
-        //        loginWindow.ShowDialog();
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
 
-        //        viewModel.GetNotebooks();
-        //    }
-        //}
+            if (string.IsNullOrEmpty(App.UserId))
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+
+                viewModel.GetNotebooks();
+            }
+        }
         private void viewModel_SelectedNoteChanged(object sender, EventArgs e)
         {
             contentRichTextBox.Document.Blocks.Clear();
