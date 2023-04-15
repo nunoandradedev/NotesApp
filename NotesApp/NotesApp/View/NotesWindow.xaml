@@ -32,7 +32,7 @@
             </StatusBarItem>
         </StatusBar>
         <ListView DockPanel.Dock="Left"
-                  Background="MidnightBlue"
+                  Background="CadetBlue"
                   Width="140"
                   SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
@@ -71,8 +71,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ToolBarTray DockPanel.Dock="Top">
-            <ToolBar>
+        <ToolBarTray DockPanel.Dock="Top"
+                     Background="CadetBlue">
+            <ToolBar Background="CadetBlue">
                 <Button Content="Speech"
                         Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton"
