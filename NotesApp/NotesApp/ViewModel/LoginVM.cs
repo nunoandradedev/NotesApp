@@ -1,9 +1,11 @@
 ﻿using NotesApp.Model;
 using NotesApp.ViewModel.Commands;
+using NotesApp.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace NotesApp.ViewModel
@@ -184,10 +186,10 @@ namespace NotesApp.ViewModel
             //TODO
         }
 
-        public void Register()
+        public async void Register()
         {
 
-            //TODO
+            await FirebaseAuthHelper.Register(User);
         }
 
         private void OnPropertyChanged(string propertyName)
