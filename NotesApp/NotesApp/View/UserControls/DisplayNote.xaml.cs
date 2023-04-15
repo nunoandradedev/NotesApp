@@ -1,4 +1,4 @@
-﻿using EvernoteClone.Model;
+﻿using NotesApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EvernoteClone.View.UserControls
+namespace NotesApp.View.UserControls
 {
     /// <summary>
     /// Interaction logic for DisplayNote.xaml

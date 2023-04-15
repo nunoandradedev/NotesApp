@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows;
 
-namespace EvernoteClone.Model
+namespace NotesApp.Model
 {
     public class Notebook : INotifyPropertyChanged
     {

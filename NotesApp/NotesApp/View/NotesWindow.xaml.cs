@@ -1,5 +1,5 @@
-﻿using EvernoteClone.ViewModel;
-using EvernoteClone.ViewModel.Helpers;
+﻿using NotesApp.ViewModel;
+using NotesApp.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
@@ -17,7 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EvernoteClone.View
+namespace NotesApp.View
 {
     /// <summary>
     /// Interaction logic for NotesWindow.xaml

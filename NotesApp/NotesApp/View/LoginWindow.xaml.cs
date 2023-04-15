@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EvernoteClone.View
+namespace NotesApp.View
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml

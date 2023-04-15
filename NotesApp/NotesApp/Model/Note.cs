@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EvernoteClone.Model
+namespace NotesApp.Model
 {
     public class Note
     {

@@ -1,10 +1,10 @@
-﻿using EvernoteClone.Model;
+﻿using NotesApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace EvernoteClone.ViewModel.Commands
+namespace NotesApp.ViewModel.Commands
 {
     public class LoginCommand : ICommand
     {

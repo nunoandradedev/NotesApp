@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace EvernoteClone.ViewModel.Helpers
+namespace NotesApp.ViewModel.Helpers
 {
     public class DatabaseHelper
     {

@@ -1,12 +1,12 @@
-﻿using EvernoteClone.Model;
-using EvernoteClone.ViewModel.Commands;
+﻿using NotesApp.Model;
+using NotesApp.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
 
-namespace EvernoteClone.ViewModel
+namespace NotesApp.ViewModel
 {
     public class LoginVM : INotifyPropertyChanged
     {

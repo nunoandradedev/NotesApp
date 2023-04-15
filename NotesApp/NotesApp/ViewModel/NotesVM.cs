@@ -1,6 +1,6 @@
-﻿using EvernoteClone.Model;
-using EvernoteClone.ViewModel.Commands;
-using EvernoteClone.ViewModel.Helpers;
+﻿using NotesApp.Model;
+using NotesApp.ViewModel.Commands;
+using NotesApp.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace EvernoteClone.ViewModel
+namespace NotesApp.ViewModel
 {
     public class NotesVM : INotifyPropertyChanged
     {
