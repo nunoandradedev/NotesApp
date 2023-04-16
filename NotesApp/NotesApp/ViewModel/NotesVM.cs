@@ -68,6 +68,7 @@ namespace NotesApp.ViewModel
             Notebook newNotebook = new Notebook()
             {
                 Name = "New notebook",
+                UserId = App.UserId,
                 IsVisible = Visibility.Collapsed
             };
             DatabaseHelper.Insert(newNotebook);
@@ -88,7 +89,7 @@ namespace NotesApp.ViewModel
         }
         public void GetNotebooks()
         {
-            var notebooks = DatabaseHelper.Read<Notebook>();
+            var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
 
             Notebooks.Clear();
             foreach (var notebook in notebooks)

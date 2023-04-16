@@ -130,6 +130,7 @@ namespace NotesApp.ViewModel
         private Visibility loginVis;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler Authenticated;
 
         public Visibility LoginVis
         {
@@ -181,15 +182,22 @@ namespace NotesApp.ViewModel
             }
         }
 
-        public void Login()
+        public async void Login()
         {
-            //TODO
+            bool result = await FirebaseAuthHelper.Login(User);
+            if (result)
+            {
+                Authenticated?.Invoke(this, new EventArgs());
+            }
         }
 
         public async void Register()
         {
-
-            await FirebaseAuthHelper.Register(User);
+            bool result = await FirebaseAuthHelper.Register(User);
+            if (result)
+            {
+                Authenticated?.Invoke(this, new EventArgs());
+            }
         }
 
         private void OnPropertyChanged(string propertyName)

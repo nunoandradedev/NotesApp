@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotesApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,18 @@ namespace NotesApp.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        LoginVM vm;
         public LoginWindow()
         {
             InitializeComponent();
+
+            vm = Resources["vm"] as LoginVM;
+            vm.Authenticated += ViewModel_Authenticated;
+        }
+
+        private void ViewModel_Authenticated(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

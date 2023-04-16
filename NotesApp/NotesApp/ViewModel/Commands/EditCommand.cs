@@ -24,7 +24,6 @@ namespace NotesApp.ViewModel.Commands
         public void Execute(object parameter)
         {
             ViewModel.StartEditing();
-
         }
     }
 }
