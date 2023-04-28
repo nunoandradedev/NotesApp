@@ -7,26 +7,60 @@
         xmlns:vm="clr-namespace:NotesApp.ViewModel"
         xmlns:local="clr-namespace:NotesApp.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="500">
+        Title="" Height="450" Width="500"
+        Icon="notes.ico">
+    
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
+            <Storyboard x:Key="Move"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}">
         <StackPanel Visibility="{Binding LoginVis}"
-                    Margin="10,0">
+                    Margin="19,19,19,19">
             <TextBlock Text="Email:"/>
-            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFEEEEEE" BorderBrush="{x:Null}" Height="19">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Command="{Binding LoginCommand}"
+            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFEEEEEE" BorderBrush="{x:Null}" Height="19">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button x:Name="button" Command="{Binding LoginCommand}"
                     CommandParameter="{Binding User}"
-                    Margin="0,5"
-                    Content="Login"/>
+                    Content="Login" RenderTransformOrigin="0.5,0.5" Width="255" Height="20" Margin="0,100,0,0">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF90D4C5"/>
+                        <GradientStop Color="#FF36B699" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <TextBlock Text="Register"
                        Foreground="DodgerBlue"
-                       TextDecorations="Underline">
+                       TextDecorations="Underline" HorizontalAlignment="Center">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>

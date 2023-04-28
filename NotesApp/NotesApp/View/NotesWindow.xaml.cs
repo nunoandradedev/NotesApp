@@ -44,6 +44,8 @@ namespace NotesApp.View
         {
             base.OnActivated(e);
 
+            viewModel.GetNotebooks();
+
             if (string.IsNullOrEmpty(App.UserId))
             {
                 LoginWindow loginWindow = new LoginWindow();

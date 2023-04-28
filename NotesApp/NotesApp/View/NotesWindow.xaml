@@ -8,7 +8,8 @@
         xmlns:uc ="clr-namespace:NotesApp.View.UserControls"
         xmlns:vm="clr-namespace:NotesApp.ViewModel"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="400" Width="700">
+        Title="" Height="400" Width="700"
+        Icon="notes.ico">
 
     <Window.Resources>
         <vm:NotesVM x:Key="vm"/>
@@ -32,22 +33,30 @@
             </StatusBarItem>
         </StatusBar>
         <ListView DockPanel.Dock="Left"
-                  Background="CadetBlue"
                   Width="140"
                   SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF90D4C5"/>
+                    <GradientStop Color="#FF36B699" Offset="1"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                    <uc:DisplayNotebook Notebook="{Binding}">
-                        <uc:DisplayNotebook.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="Rename"
+                        <uc:DisplayNotebook Notebook="{Binding}">
+                            <uc:DisplayNotebook.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename"
                                           Command="{Binding Source={StaticResource vm}, Path=EditCommand}"
                                           CommandParameter="{Binding}"/>
-                            </ContextMenu>
-                        </uc:DisplayNotebook.ContextMenu>
-                    </uc:DisplayNotebook>
+                                    <MenuItem Header="Delete"
+                                          Command="{Binding Source={StaticResource vm}, Path=DeleteNotebookCommand}"
+                                          CommandParameter="{Binding}"/>
+                                </ContextMenu>
+                            </uc:DisplayNotebook.ContextMenu>
+                        </uc:DisplayNotebook>
                         <TextBox    Text="{Binding Name, Mode=TwoWay}"
                                     Visibility="{Binding IsVisible}">
                             <i:Interaction.Triggers>
@@ -71,9 +80,20 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ToolBarTray DockPanel.Dock="Top"
-                     Background="CadetBlue">
-            <ToolBar Background="CadetBlue">
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBarTray.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF90D4C5" Offset="0.013"/>
+                    <GradientStop Color="#FF36B699" Offset="1"/>
+                </LinearGradientBrush>
+            </ToolBarTray.Background>
+            <ToolBar>
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF90D4C5"/>
+                        <GradientStop Color="#FF36B699" Offset="1"/>
+                    </LinearGradientBrush>
+                </ToolBar.Background>
                 <Button Content="Speech"
                         Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton"
@@ -103,9 +123,13 @@
             </ToolBar>
         </ToolBarTray>
         <Grid>
-            <RichTextBox x:Name="contentRichTextBox"
+            <StackPanel>
+                <TextBox Margin="10"
+                     Text="{Binding Path=SelectedNote.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <RichTextBox x:Name="contentRichTextBox"
                          TextChanged="contentRichTextBox_TextChanged"
                          SelectionChanged="contentRichTextBox_SelectionChanged"/>
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>

@@ -47,6 +47,7 @@ namespace NotesApp.ViewModel
         public NewNoteCommand NewNoteCommand { get; set; }
         public EditCommand EditCommand { get; set; }
         public EndEditingCommand EndEditingCommand { get; set; }
+        public DeleteNotebookCommand DeleteNotebookCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler SelectedNoteChanged;
@@ -56,7 +57,7 @@ namespace NotesApp.ViewModel
             NewNoteCommand = new NewNoteCommand(this);
             EditCommand = new EditCommand(this);
             EndEditingCommand = new EndEditingCommand(this);
-
+            DeleteNotebookCommand = new DeleteNotebookCommand(this);
             Notebooks = new ObservableCollection<Notebook>();
             Notes = new ObservableCollection<Note>();
 
@@ -87,6 +88,13 @@ namespace NotesApp.ViewModel
             DatabaseHelper.Insert(newNote);
             GetNotes();
         }
+
+        public void DeleteNotebook(Notebook notebook)
+        {
+            DatabaseHelper.Delete(notebook);
+            GetNotebooks();
+        }
+
         public void GetNotebooks()
         {
             var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
